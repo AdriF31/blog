@@ -1,6 +1,7 @@
 import 'package:blog/ui/article/add/add_article_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AddArticlePage extends StatelessWidget {
   const AddArticlePage({super.key});
@@ -11,9 +12,10 @@ class AddArticlePage extends StatelessWidget {
         init: AddArticleController(),
         builder: (c) => Scaffold(
               appBar: AppBar(
-                title: Text('Tambah Artikel'),
+                title: const Text('Tambah Artikel'),
               ),
-              body: SingleChildScrollView(
+              body: 
+              SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
@@ -24,8 +26,8 @@ class AddArticlePage extends StatelessWidget {
                           c.getSinglePhoto();
                         },
                         child: Container(
-                          width: double.infinity,
-                          height: 200,
+                          width: Get.size.width * 0.8,
+                          height: Get.size.width * 0.8,
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.redAccent)),
@@ -34,39 +36,51 @@ class AddArticlePage extends StatelessWidget {
                                   c.gettedPhoto!,
                                   fit: BoxFit.fill,
                                 )
-                              : Center(child: Text('upload photo')),
+                              : const Center(child: Text('upload photo')),
                         ),
                       ),
                       const SizedBox(
                         height: 8,
                       ),
-                      TextFormField(
-                        controller: c.titleController,
-                        decoration: InputDecoration(
-                            focusColor: Colors.green,
-                            hintText: 'title',
-                            prefixIcon: const Icon(
-                              Icons.person_outline,
-                              color: Colors.black,
-                            ),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10))),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Title',
+                            style: GoogleFonts.montserrat(fontSize: 16),
+                          ),
+                          TextFormField(
+                            controller: c.titleController,
+                            decoration: InputDecoration(
+                                focusColor: Colors.green,
+                                hoverColor: Colors.amber,
+                                hintText: 'title',
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 8,
                       ),
-                      TextFormField(
-                        controller: c.contentController,
-                        maxLines: 5,
-                        decoration: InputDecoration(
-                            focusColor: Colors.green,
-                            hintText: 'content',
-                            prefixIcon: const Icon(
-                              Icons.person,
-                              color: Colors.black,
-                            ),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10))),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Content',
+                            style: GoogleFonts.montserrat(fontSize: 16),
+                          ),
+                          TextFormField(
+                            controller: c.contentController,
+                            maxLines: 5,
+                            minLines: 1,
+                            decoration: InputDecoration(
+                                focusColor: Colors.green,
+                                hintText: 'content',
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 16,

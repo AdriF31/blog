@@ -77,7 +77,7 @@ class StorageCore {
     try {
       Map<String, dynamic> data = storage.getItem('auth_result');
       LoginModel auth = LoginModel.fromJson(data);
-      debugPrint(auth.data?.user?.name);
+      debugPrint(auth.data?.user?.username);
       debugPrint(auth.data?.token);
       return auth.data?.user?.name.toString();
     } catch (e) {

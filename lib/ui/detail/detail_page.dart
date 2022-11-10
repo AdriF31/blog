@@ -102,7 +102,7 @@ class DetailPage extends StatelessWidget {
                         ],
                       ),
                     )
-                  : Center(
+                  : const Center(
                       child: CircularProgressIndicator(),
                     ),
             ));

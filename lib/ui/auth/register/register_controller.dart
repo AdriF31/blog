@@ -2,7 +2,6 @@ import 'package:blog/base/base_controller.dart';
 import 'package:blog/data/model/register_model.dart';
 import 'package:blog/data/storage_core.dart';
 import 'package:blog/ui/auth/login/login_page.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';

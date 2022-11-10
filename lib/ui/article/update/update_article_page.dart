@@ -1,4 +1,3 @@
-import 'package:blog/ui/article/add/add_article_controller.dart';
 import 'package:blog/ui/article/update/update_article_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +12,7 @@ class UpdateArticlePage extends StatelessWidget {
         init: UpdateArticleController(),
         builder: (c) => Scaffold(
               appBar: AppBar(
-                title: Text('Update Artikel'),
+                title: const Text('Update Artikel'),
               ),
               body: SingleChildScrollView(
                 child: Padding(
@@ -26,8 +25,8 @@ class UpdateArticlePage extends StatelessWidget {
                           c.getSinglePhoto();
                         },
                         child: Container(
-                          width: double.infinity,
-                          height: 200,
+                          width: Get.size.width * 0.9,
+                          height: Get.size.width * 0.9,
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.redAccent)),
@@ -51,35 +50,48 @@ class UpdateArticlePage extends StatelessWidget {
                       const SizedBox(
                         height: 8,
                       ),
-                      TextFormField(
-                        controller: c.titleController
-                          ..text = c.articleDetailModel?.data?.title ?? '',
-                        decoration: InputDecoration(
-                            focusColor: Colors.green,
-                            hintText: 'title',
-                            prefixIcon: const Icon(
-                              Icons.person_outline,
-                              color: Colors.black,
-                            ),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10))),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Title',
+                            style: GoogleFonts.montserrat(fontSize: 16),
+                          ),
+                          TextFormField(
+                            controller: c.titleController
+                              ..text = c.articleDetailModel?.data?.title ?? '',
+                            decoration: InputDecoration(
+                                focusColor: Colors.green,
+                                hoverColor: Colors.amber,
+                                hintText: 'title',
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 8,
                       ),
-                      TextFormField(
-                        controller: c.contentController
-                          ..text = c.articleDetailModel?.data?.content ?? '',
-                        maxLines: 5,
-                        decoration: InputDecoration(
-                            focusColor: Colors.green,
-                            hintText: 'content',
-                            prefixIcon: const Icon(
-                              Icons.person,
-                              color: Colors.black,
-                            ),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10))),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Content',
+                            style: GoogleFonts.montserrat(fontSize: 16),
+                          ),
+                          TextFormField(
+                            controller: c.contentController
+                              ..text =
+                                  c.articleDetailModel?.data?.content ?? '',
+                            maxLines: 5,
+                            minLines: 1,
+                            decoration: InputDecoration(
+                                focusColor: Colors.green,
+                                hintText: 'content',
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 16,

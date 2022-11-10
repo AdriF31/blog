@@ -22,10 +22,8 @@ class RepositoryImpl implements Repository {
       var response = await network.dio.post("/login",
           data: {"username": username, "password": password},
           options: Options(headers: {"Accept": "application/json"}));
-      print(response.data);
       return LoginModel.fromJson(response.data);
     } on DioError catch (e) {
-      print(e.response?.data.toString());
       return LoginModel.fromJson(e.response?.data);
     }
   }
@@ -45,7 +43,6 @@ class RepositoryImpl implements Repository {
 
       return RegisterModel.fromJson(response.data);
     } on DioError catch (e) {
-      print(e.response?.data.toString());
       return RegisterModel.fromJson(e.response?.data);
     }
   }
@@ -57,7 +54,7 @@ class RepositoryImpl implements Repository {
           options: Options(headers: {'Authorization': 'Bearer $token'}));
       return ArticleModel.fromJson(response.data);
     } on DioError catch (e) {
-      return null;
+      return ArticleModel.fromJson(e.response?.data ?? '');
     }
   }
 
@@ -70,9 +67,8 @@ class RepositoryImpl implements Repository {
             'accept': 'application/json',
             'Authorization': 'Bearer $token'
           }));
-      print(response.data);
       return ArticleDetailModel.fromJson(response.data);
-    } on DioError catch (e) {
+    } on DioError {
       return null;
     }
   }
@@ -98,10 +94,8 @@ class RepositoryImpl implements Repository {
             "Accept": "application/json",
             "Content-Type": "multipart/form-data"
           }));
-      print(response.data);
       return CreateArticleModel.fromJson(response.data);
-    } on DioError catch (e) {
-      print(e.error);
+    } on DioError {
       return null;
     }
   }
@@ -112,7 +106,7 @@ class RepositoryImpl implements Repository {
       var response = await network.dio.delete('/post/$id',
           options: Options(headers: {'Authorization': 'Bearer $token'}));
       return DeleteArticleModel.fromJson(response.data);
-    } on DioError catch (e) {
+    } on DioError {
       return null;
     }
   }
@@ -123,10 +117,8 @@ class RepositoryImpl implements Repository {
       var response = await network.dio.post("/logout",
           data: {"username": username, "password": password},
           options: Options(headers: {"Accept": "application/json"}));
-      print(response.data);
       return LogoutModel.fromJson(response.data);
     } on DioError catch (e) {
-      print(e.response?.data.toString());
       return LogoutModel.fromJson(e.response?.data);
     }
   }
@@ -152,10 +144,8 @@ class RepositoryImpl implements Repository {
             "Accept": "application/json",
             "Content-Type": "multipart/form-data"
           }));
-      print(response.data);
       return CreateArticleModel.fromJson(response.data);
-    } on DioError catch (e) {
-      print(e.error);
+    } on DioError {
       return null;
     }
   }

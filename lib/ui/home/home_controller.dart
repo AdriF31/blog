@@ -16,8 +16,7 @@ class HomeController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    getArticle(token ?? '');
-    print(storage.getCurrentUsername());
+    getArticle(token!);
     update();
   }
 

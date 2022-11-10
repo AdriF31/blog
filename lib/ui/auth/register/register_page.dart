@@ -11,7 +11,7 @@ class RegisterPage extends StatelessWidget {
         init: RegisterController(),
         builder: (c) => Scaffold(
               appBar: AppBar(
-                title: Text('Register'),
+                title: const Text('Register'),
               ),
               body: Padding(
                 padding: const EdgeInsets.all(16),
@@ -23,7 +23,7 @@ class RegisterPage extends StatelessWidget {
                       decoration: InputDecoration(
                           focusColor: Colors.green,
                           hintText: 'username',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.person_outline,
                             color: Colors.black,
                           ),
@@ -53,7 +53,7 @@ class RegisterPage extends StatelessWidget {
                       decoration: InputDecoration(
                           focusColor: Colors.green,
                           hintText: 'email',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.email_outlined,
                             color: Colors.black,
                           ),

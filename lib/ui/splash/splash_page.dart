@@ -1,7 +1,5 @@
 import 'package:blog/ui/splash/splash_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
 class SplashPage extends StatelessWidget {
@@ -11,7 +9,11 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<SplashController>(
       init: SplashController(),
-      builder: (c) => Scaffold(),
+      builder: (c) => const Scaffold(
+        body: Center(
+          child: Text('ini splashscreen'),
+        ),
+      ),
     );
   }
 }

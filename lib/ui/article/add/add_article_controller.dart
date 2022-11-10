@@ -16,7 +16,6 @@ class AddArticleController extends BaseController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     titleController.text;
     contentController.text;
@@ -41,7 +40,7 @@ class AddArticleController extends BaseController {
     var response = await repository.postArticle(
         titleController.text, contentController.text, gettedPhoto, token!);
     Fluttertoast.showToast(msg: response!.meta!.message!);
-    if (response.meta?.code == 200) {
+    if (response.meta?.code == 201) {
       Get.offAll(() => const HomePage());
     }
   }
