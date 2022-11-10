@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
                 actions: [
                   IconButton(
                       onPressed: () {
-                        c.storage.deleteAuthResponse();
+                       
                         // Get.offAll(LoginPage());
                         c.logout(
                             c.storage.getCurrentUsername()!, Get.arguments);

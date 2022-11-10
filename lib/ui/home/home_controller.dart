@@ -17,6 +17,7 @@ class HomeController extends BaseController {
   void onInit() {
     super.onInit();
     getArticle(token!);
+    StorageCore().getAccessToken();
     update();
   }
 

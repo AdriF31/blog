@@ -7,6 +7,7 @@ import 'package:blog/data/model/create_article_model.dart';
 import 'package:blog/data/model/delete_article_model.dart';
 import 'package:blog/data/model/login_model.dart';
 import 'package:blog/data/model/register_model.dart';
+import 'package:blog/data/model/update_article_model.dart';
 
 import '../data/model/logout_model.dart';
 
@@ -20,6 +21,6 @@ abstract class Repository {
   FutureOr<CreateArticleModel?> postArticle(
       String title, String content, File? image, String token);
   FutureOr<DeleteArticleModel?> deleteArticle(int id, String token);
-  FutureOr<CreateArticleModel?> postUpdateArticle(String id,
-      String title, String content, File? image, String token);
+  FutureOr<UpdateArticleModel?> postUpdateArticle(
+      String id, String title, String content, File? image, String token);
 }

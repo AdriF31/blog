@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return ("Email Harus Diisi");
+                          return ("usernameHarus Diisi");
                         }
                         // reg expression for email validation
 
@@ -70,6 +70,11 @@ class LoginPage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
+                        // if (c.formKey.currentState?.validate() == true) {
+                        //   print("OK");
+                        //   c.doLogin(c.usernameController.text,
+                        //       c.passwordController.text);
+                        // }
                         c.doLogin(c.usernameController.text,
                             c.passwordController.text);
                       },
@@ -97,8 +102,8 @@ class LoginPage extends StatelessWidget {
                         decoration: BoxDecoration(
                             border: Border.all(),
                             borderRadius: BorderRadius.circular(10)),
-                        child:const Center(
-                          child:  Text(
+                        child: const Center(
+                          child: Text(
                             'Register',
                             style: TextStyle(fontSize: 24, color: Colors.black),
                           ),
